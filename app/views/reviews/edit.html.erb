@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<h1>Review Edit</h1>
+
+<%= form_for(@review) do |f| %>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Back to Index", "/reviews", :class => "btn btn-success" %>
+
+

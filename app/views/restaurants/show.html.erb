@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<%= link_to "Back to Restaurant Index", "/restaurants", :class => "btn btn-success" %>
+
+
+<div class="text-center padded">
+
+  <h1>Food Advisor</h1>
+  <h2>-The best restaurants and kitchens around you-</h2><br><br>
+
+  <div class="row">
+    <div class=" col-sm-4"></div>
+    <div class="col-sm-4 text-center">
+      <br><div class="card">
+      <h2><%= @restaurant.name %></h2>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.category.capitalize %></p>
+      <%= link_to "Edit", "/restaurants/#{@restaurant.id}/edit", :class => "btn btn-warning" %>
+      <%= link_to "Delete", "/restaurants/#{@restaurant.id}", method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+    </div>
+  </div>
+</div>
+
+
+  <h3>Reviews about this restaurant</h3>
+  <div class="row">
+  <div class=" col-sm-4"></div>
+    <div class="col-sm-4 text-center">
+      <% @restaurant.reviews.each do |review| %>
+      <br><div class="card">
+      <%= review.content %><br>
+      <%=" Rating : "%><%= review.rating %><br>
+    </div>
+    <%end%>
+  </div>
+</div>
+
+
+<hr>
+<%= link_to "Add a Review", "/restaurants/#{@restaurant.id}/reviews/new", :class => "btn btn-success" %>
+</div>
+
+
+<div id="footer">
+ <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <ul class="list-inline">
+              <li><%= link_to "", "", class:"fa fa-youtube" %></li>
+              <li><%= link_to "", "", class:"fa fa-instagram" %></li>
+              <li><%= link_to "", "", class:"fa fa-facebook" %></li>
+              <li><%= link_to "", "", class:"fa fa-twitter" %></li>
+            </ul>
+          </div>
+          <div class="col-xs-8 text-right">
+            <p>This is a FoodAdvisor challenge @ LeWagon</p>
+          </div>
+        </div>
+      </div>
+</div>
